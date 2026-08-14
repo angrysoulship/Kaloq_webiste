@@ -31,8 +31,8 @@ export function Footer() {
         </div>
 
         <div className="mt-14 max-w-[820px] border-t border-white/12 pt-6 text-xs leading-[1.6] text-white/40">
-          <p className="mt-2">{footer.legalBlock.msb}</p>
-          <p className="mt-2">{footer.legalBlock.issuer}</p>
+          <p className="mt-2">{footer.legalBlock.service}</p>
+          <p className="mt-2">{footer.legalBlock.availability}</p>
           <p className="mt-2">{footer.legalBlock.notBank}</p>
         </div>
 

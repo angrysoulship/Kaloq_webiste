@@ -1,7 +1,6 @@
 // Single source of truth for all site copy.
-// Every unverified real-world fact is marked with a `[TODO: ...]` placeholder —
-// see CONTENT-TODO.md for the full list before this ships.
-// Structured to make a future locale (e.g. `content.zh.ts`) a drop-in sibling.
+// Confirm real-world product, partner, compliance, and availability claims
+// before publishing them. Keep public copy scoped to verified capabilities.
 
 export const site = {
   name: "Kaloq",
@@ -79,9 +78,9 @@ export const footer = {
     },
   ],
   legalBlock: {
-    msb: "Kaloq is registered as a Money Services Business with FinCEN.",
-    issuer: "Card services are provided through licensed partner institutions.",
-    notBank: "Kaloq is not a bank. Stablecoin balances are not FDIC insured.",
+    service: "Kaloq provides a software interface for services delivered by third-party providers.",
+    availability: "Product availability, eligibility, fees, and terms vary by region and account.",
+    notBank: "Kaloq is not a bank. Digital assets and stablecoins are not bank deposits and may not be insured.",
     copyright: "© 2026 Kaloq, Inc.",
   },
   tagline: "Making stablecoins easy to move and spend for people today, and AI agents tomorrow.",
@@ -99,19 +98,6 @@ export const home = {
     sub: "Spend with a card, hold in global accounts, settle at internet speed.",
     submitLabel: "Get started free",
     ctaHref: "https://card.kaloq.com",
-  },
-  // [TODO: legal/compliance review] — MSB/SOC2/custody/reserves claims below are unverified marketing
-  // copy from the design handoff; confirm exact wording and figures with compliance before shipping.
-  trustBand: {
-    heading: "Built on ",
-    headingAccent: "trust",
-    pillars: [
-      { figure: "MSB", accent: true, label: "Licensed", body: "US registered, VASP across the EU." },
-      { figure: "SOC 2", accent: false, label: "Audited", body: "Type II, continuous security audits." },
-      { figure: "100%", accent: false, label: "Custody", body: "Qualified, regulated custodians." },
-      { figure: "1:1", accent: true, label: "Reserves", body: "Attested monthly by independent auditors." },
-    ],
-    partnersLabel: "Custody & banking partners",
   },
   howItWorks: {
     heading: "How it works",
@@ -483,7 +469,7 @@ export const productGlobalAccount = {
     },
     {
       question: "Is Kaloq a bank?",
-      answer: "No. Kaloq is not a bank. Account and card services are provided through applicable licensed partner institutions.",
+      answer: "No. Kaloq is not a bank. The responsible third-party provider is identified in the applicable product flow and terms.",
     },
   ] satisfies FaqItem[],
   closer: {
