@@ -28,7 +28,12 @@ export default function PricingPage() {
             <h2 className="text-2xl font-semibold tracking-tight text-[#0E2A1E]">Indicative card fees</h2>
             <span className="rounded-full bg-[#EAF1EC] px-3 py-1.5 text-xs font-semibold text-[#25573F]">{pricing.indicativeLabel}</span>
           </div>
-          {pricing.groups.map((group) => <FeeTable key={group.heading} heading={group.heading} rows={group.rows} />)}
+          <FeeTable heading="The Card" rows={pricing.cardFees} />
+
+          <div className="mb-4 mt-12">
+            <h2 className="text-2xl font-semibold tracking-tight text-[#0E2A1E]">Other fees</h2>
+          </div>
+          <FeeTable rows={pricing.otherFees} />
         </FadeIn>
       </Section>
 
