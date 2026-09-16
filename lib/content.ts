@@ -604,9 +604,8 @@ export const solutionsList = [solutions.stablecoinEarners, solutions.crossBorder
 // ---------------------------------------------------------------------------
 
 export const pricing = {
-  h1: "Simple fees, shown clearly.",
+  h1: "Simple fee, shown clearly.",
   intro: "Understand the possible cost of funding, spending, converting, and withdrawing before you use your card.",
-  indicativeLabel: "Indicative — pending final confirmation",
   cardFees: [
     { label: "First virtual card", value: "$0.50 per card", note: "Fee for opening the first virtual card." },
     { label: "Virtual card issuance or replacement", value: "$5 per card", note: "Fee for each additional or replacement virtual card." },
@@ -632,11 +631,11 @@ export const pricing = {
     { label: "Cashback exclusions", value: "Not eligible", note: "ATM withdrawals, transfers, wallet top-ups, financial transactions, gambling, refunds, and abnormal transactions." },
   ] satisfies FeeRow[],
   faq: [
-    { question: "Are these fees final?", answer: "No. The figures on this page are indicative and pending final confirmation. Check the in-app confirmation page and formal fee schedule before using the card." },
+    { question: "Is this fee final?", answer: "No. The figures on this page are indicative and pending final confirmation. Check the in-app confirmation page and formal fee schedule before using the card." },
     { question: "How does foreign exchange affect the total?", answer: "A 1.80% indicative fee applies to non-USD foreign exchange. Cross-border transactions also carry a 1.80% indicative fee. The final amount depends on the currencies and route involved." },
     { question: "Can an ATM charge more?", answer: "Yes. Kaloq's indicative withdrawal fee is 2%, with a $2 minimum, and an ATM operator may add its own fee." },
     { question: "Is card funding charged?", answer: "The current indicative USDT/USDC top-up fee is 0.10%. Funding method, supported asset, network, and region can affect the final cost." },
-    { question: "Do fees vary by region?", answer: "They can. Availability, supported assets, conversion routes, and applicable fees depend on your region and account." },
+    { question: "Does the fee vary by region?", answer: "It can. Availability, supported assets, conversion routes, and the applicable fee depend on your region and account." },
   ] satisfies FaqItem[],
 };
 
