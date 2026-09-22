@@ -604,29 +604,38 @@ export const solutionsList = [solutions.stablecoinEarners, solutions.crossBorder
 // ---------------------------------------------------------------------------
 
 export const pricing = {
-  h1: "Simple fees, shown clearly.",
+  h1: "Simple fee, shown clearly.",
   intro: "Understand the possible cost of funding, spending, converting, and withdrawing before you use your card.",
-  indicativeLabel: "Indicative — pending final confirmation",
-  groups: [
-    {
-      heading: "Kaloq Card",
-      rows: [
-        { label: "Virtual card application", value: "Free", note: "Indicative rate for a virtual card application." },
-        { label: "Physical card delivery", value: "$8.00", note: "Indicative delivery charge for a physical card." },
-        { label: "Card funding", value: "0.9%", note: "Indicative rate when funding your card balance." },
-        { label: "Card transaction", value: "Free", note: "Indicative card transaction fee." },
-        { label: "Foreign exchange", value: "1.2%", note: "Indicative FX rate when conversion applies." },
-        { label: "ATM withdrawal", value: "2% · minimum $3", note: "Indicative rate; the ATM operator may charge separately." },
-        { label: "Card replacement", value: "$8.00", note: "Indicative replacement charge." },
-      ] satisfies FeeRow[],
-    },
-  ],
+  cardFees: [
+    { label: "First virtual card", value: "$0.50 per card", note: "Fee for opening the first virtual card." },
+    { label: "Virtual card issuance or replacement", value: "$5 per card", note: "Fee for each additional or replacement virtual card." },
+    { label: "Physical card", value: "$15", note: "Card opening fee; shipping is charged separately." },
+    { label: "Physical card replacement", value: "$15", note: "Replacement fee; shipping is charged separately." },
+    { label: "Monthly account fee", value: "$0.15-$0.25", note: "Monthly account maintenance fee." },
+    { label: "Card cancellation", value: "Free", note: "No card cancellation fee." },
+    { label: "USDT/USDC top-up", value: "0.10%", note: "Fee for funding the card with USDT or USDC." },
+    { label: "Apple Pay authorization", value: "0.2% · minimum $0.06", note: "Authorization fee for Apple Pay transactions." },
+    { label: "USD transaction", value: "$0.30 per transaction", note: "Fee for card transactions settled in USD." },
+    { label: "Cross-border transaction", value: "1.80%", note: "Fee for cross-border card transactions." },
+    { label: "Non-USD foreign exchange", value: "1.80%", note: "Foreign-exchange fee for transactions in non-USD currencies." },
+    { label: "ATM withdrawal", value: "2% · minimum $2", note: "Withdrawal fee; the ATM operator may charge separately." },
+    { label: "Cashback", value: "0.30%", note: "Cashback rate for eligible transactions." },
+  ] satisfies FeeRow[],
+  otherFees: [
+    { label: "Authorization fee", value: "$0.15 per transaction", note: "Fee for card transaction authorization." },
+    { label: "Card verification", value: "$0.10-$0.50", note: "Fee for a card verification attempt." },
+    { label: "Refund fee", value: "2%", note: "Fee applied when a transaction is refunded." },
+    { label: "Reversal fee", value: "$1 per transaction", note: "Fee for a reversed transaction." },
+    { label: "Decline fee", value: "$0.50 per transaction", note: "Applies when the card decline rate is 20% or higher." },
+    { label: "Dispute / chargeback", value: "$45 per transaction", note: "Fee for each dispute or chargeback." },
+    { label: "Cashback exclusions", value: "Not eligible", note: "ATM withdrawals, transfers, wallet top-ups, financial transactions, gambling, refunds, and abnormal transactions." },
+  ] satisfies FeeRow[],
   faq: [
-    { question: "Are these fees final?", answer: "No. The figures on this page are indicative and pending final confirmation. Check the in-app confirmation page and formal fee schedule before using the card." },
-    { question: "How does foreign exchange affect the total?", answer: "An indicative FX rate may apply when a transaction requires conversion. The final amount depends on the currencies and route involved." },
-    { question: "Can an ATM charge more?", answer: "Yes. An ATM operator may add its own fee on top of Kaloq's indicative withdrawal rate." },
-    { question: "Is card funding charged?", answer: "The current indicative card funding rate is 0.9%. Funding method, supported asset, network, and region can affect the final cost." },
-    { question: "Do fees vary by region?", answer: "They can. Availability, supported assets, conversion routes, and applicable fees depend on your region and account." },
+    { question: "Is this fee final?", answer: "No. The figures on this page are indicative and pending final confirmation. Check the in-app confirmation page and formal fee schedule before using the card." },
+    { question: "How does foreign exchange affect the total?", answer: "A 1.80% indicative fee applies to non-USD foreign exchange. Cross-border transactions also carry a 1.80% indicative fee. The final amount depends on the currencies and route involved." },
+    { question: "Can an ATM charge more?", answer: "Yes. Kaloq's indicative withdrawal fee is 2%, with a $2 minimum, and an ATM operator may add its own fee." },
+    { question: "Is card funding charged?", answer: "The current indicative USDT/USDC top-up fee is 0.10%. Funding method, supported asset, network, and region can affect the final cost." },
+    { question: "Does the fee vary by region?", answer: "It can. Availability, supported assets, conversion routes, and the applicable fee depend on your region and account." },
   ] satisfies FaqItem[],
 };
 
