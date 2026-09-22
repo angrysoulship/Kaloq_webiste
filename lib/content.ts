@@ -233,7 +233,7 @@ export const finalCtaGeneric = {
 export const productCard = {
   hero: {
     eyebrow: "Kaloq Card",
-    h1Line1: "Your supported digital assets, ready for",
+    h1Line1: "Your digital assets, ready for",
     h1Line2: "everyday",
     h1Accent: "spending",
     sub: "Fund your card with supported digital assets and use it for everyday purchases — online, in stores, and while traveling.",
