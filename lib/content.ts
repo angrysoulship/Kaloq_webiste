@@ -1,3 +1,5 @@
+import { CARD_SIGNUP_HREF } from "@/lib/features";
+
 // Single source of truth for all site copy.
 // Every unverified real-world fact is marked with a `[TODO: ...]` placeholder —
 // see CONTENT-TODO.md for the full list before this ships.
@@ -49,7 +51,7 @@ export const nav = {
     },
   ] satisfies NavDropdownItem[],
   pricing: { label: "Pricing", href: "/pricing" } satisfies NavLink,
-  demo: { label: "Get started", href: "https://card.kaloq.com" },
+  demo: { label: "Get started", href: CARD_SIGNUP_HREF },
 };
 
 export const footer = {
@@ -98,7 +100,7 @@ export const home = {
     h1Accent: "spendable",
     sub: "Spend with a card, hold in global accounts, settle at internet speed.",
     submitLabel: "Get started free",
-    ctaHref: "https://card.kaloq.com",
+    ctaHref: CARD_SIGNUP_HREF,
   },
   // [TODO: legal/compliance review] — MSB/SOC2/custody/reserves claims below are unverified marketing
   // copy from the design handoff; confirm exact wording and figures with compliance before shipping.
@@ -111,8 +113,6 @@ export const home = {
       { figure: "100%", accent: false, label: "Custody", body: "Qualified, regulated custodians." },
       { figure: "1:1", accent: true, label: "Reserves", body: "Attested monthly by independent auditors." },
     ],
-    partnersLabel: "Custody & banking partners",
-    partnerName: "Interlace",
   },
   howItWorks: {
     heading: "How it works",
@@ -208,7 +208,7 @@ export const home = {
     heading: "Ready to ",
     headingAccent: "spend",
     sub: "Open your account in minutes. Free to start.",
-    primaryCta: { label: "Get started free", href: "https://card.kaloq.com" },
+    primaryCta: { label: "Get started free", href: CARD_SIGNUP_HREF },
     secondaryCta: { label: "Talk to sales", href: "/contact" },
   },
 };
@@ -237,7 +237,7 @@ export const productCard = {
     h1Line2: "everyday",
     h1Accent: "spending",
     sub: "Fund your card with supported digital assets and use it for everyday purchases — online, in stores, and while traveling.",
-    primaryCta: { label: "Get your card", href: "https://card.kaloq.com" },
+    primaryCta: { label: "Get your card", href: CARD_SIGNUP_HREF },
     secondaryCta: { label: "Learn more", href: "#everyday-spending" },
     compliance: "Kaloq Card is issued by licensed, regulated partners.",
   },
@@ -285,7 +285,7 @@ export const productCard = {
       { number: "02", title: "Add funds", description: "Fund your card with supported digital assets." },
       { number: "03", title: "Start spending", description: "Use your card for eligible online and in-store purchases." },
     ],
-    cta: { label: "Get your card", href: "https://card.kaloq.com" },
+    cta: { label: "Get your card", href: CARD_SIGNUP_HREF },
     flow: {
       wallet: {
         title: "Your wallet",
@@ -389,7 +389,7 @@ export const productCard = {
     heading: "Make your supported digital assets ",
     headingAccent: "spendable",
     copy: "Apply for your card, add supported digital assets, and start spending online and in stores.",
-    primaryCta: { label: "Get your card", href: "https://card.kaloq.com" },
+    primaryCta: { label: "Get your card", href: CARD_SIGNUP_HREF },
     secondaryLink: { label: "Check availability", href: "/contact" },
   },
 };
@@ -405,7 +405,7 @@ export const productGlobalAccount = {
     h1Line2: "More ways to hold,",
     h1Accent: "convert, and spend",
     sub: "Manage USD today. EUR, GBP, MXN, BRL balances and account-level FX are coming soon.",
-    primaryCta: { label: "Get started", href: "https://card.kaloq.com" },
+    primaryCta: { label: "Get started", href: CARD_SIGNUP_HREF },
     secondaryCta: { label: "Explore the account", href: "#usd-account" },
     compliance: "USD is currently available. Additional currencies and FX are coming soon, subject to region and account eligibility.",
   },
@@ -489,7 +489,7 @@ export const productGlobalAccount = {
   closer: {
     heading: "Start with your USD account.",
     sub: "Manage USD today, connect Kaloq Card, and watch for more currencies and account-level FX coming soon.",
-    cta: { label: "Get started", href: "https://card.kaloq.com" },
+    cta: { label: "Get started", href: CARD_SIGNUP_HREF },
   },
 };
 
@@ -526,7 +526,7 @@ export const solutions = {
   stablecoinEarners: {
     slug: "stablecoin-earners",
     heading: "For Stablecoin Earners",
-    hero: { h1: "Turn on-chain income into everyday spending", sub: "If you earn in supported USDT or USDC, move it into Kaloq and use the Kaloq Card for travel, subscriptions, shopping, and everyday expenses.", primaryCta: { label: "Get your card", href: "https://card.kaloq.com" }, secondaryCta: { label: "Explore Kaloq Card", href: "/products/card" }, image: "/images/use-cases/stablecoin-earners.jpg", imageAlt: "A stablecoin earner working across multiple financial screens", objectPosition: "center" },
+    hero: { h1: "Turn on-chain income into everyday spending", sub: "If you earn in supported USDT or USDC, move it into Kaloq and use the Kaloq Card for travel, subscriptions, shopping, and everyday expenses.", primaryCta: { label: "Get your card", href: CARD_SIGNUP_HREF }, secondaryCta: { label: "Explore Kaloq Card", href: "/products/card" }, image: "/images/use-cases/stablecoin-earners.jpg", imageAlt: "A stablecoin earner working across multiple financial screens", objectPosition: "center" },
     painPoints: [
       { text: "Your income arrives on-chain, but daily life still expects a card.", icon: "wallet" },
       { text: "Selling on an exchange and withdrawing to a bank adds extra steps before you can spend.", icon: "transfer" },
@@ -544,7 +544,7 @@ export const solutions = {
   crossBorderLiving: {
     slug: "cross-border-living",
     heading: "For Cross-border Living",
-    hero: { h1: "Keep a dollar balance. Spend in local currency", sub: "Hold supported dollar stablecoins and use the Kaloq Card for eligible expenses as you live, work, or travel across borders.", primaryCta: { label: "Get your card", href: "https://card.kaloq.com" }, secondaryCta: { label: "See pricing", href: "/pricing" }, image: "/images/use-cases/cross-border-living.jpg", imageAlt: "People working remotely together in a café", objectPosition: "center" },
+    hero: { h1: "Keep a dollar balance. Spend in local currency", sub: "Hold supported dollar stablecoins and use the Kaloq Card for eligible expenses as you live, work, or travel across borders.", primaryCta: { label: "Get your card", href: CARD_SIGNUP_HREF }, secondaryCta: { label: "See pricing", href: "/pricing" }, image: "/images/use-cases/cross-border-living.jpg", imageAlt: "People working remotely together in a café", objectPosition: "center" },
     painPoints: [
       { text: "Your balance can travel with you while your expenses change country by country.", icon: "globe" },
       { text: "Travel, accommodation, transport, restaurants, and online tools still need a usable card.", icon: "travel" },
@@ -562,7 +562,7 @@ export const solutions = {
   dollarBalanceHolders: {
     slug: "dollar-balance-holders",
     heading: "For Dollar Balance Holders",
-    hero: { h1: "Hold dollar value. Spend in local currency", sub: "Keep supported dollar stablecoins in your wallet, then move funds into Kaloq when everyday expenses arise.", primaryCta: { label: "Get your card", href: "https://card.kaloq.com" }, secondaryCta: { label: "Explore Kaloq Card", href: "/products/card" }, image: "/images/use-cases/dollar-balance-holders.jpg", imageAlt: "A person holding a payment card beside a tablet", objectPosition: "center" },
+    hero: { h1: "Hold dollar value. Spend in local currency", sub: "Keep supported dollar stablecoins in your wallet, then move funds into Kaloq when everyday expenses arise.", primaryCta: { label: "Get your card", href: CARD_SIGNUP_HREF }, secondaryCta: { label: "Explore Kaloq Card", href: "/products/card" }, image: "/images/use-cases/dollar-balance-holders.jpg", imageAlt: "A person holding a payment card beside a tablet", objectPosition: "center" },
     painPoints: [
       { text: "You want to hold a dollar-denominated balance while local expenses continue every day.", icon: "dollar" },
       { text: "A wallet can hold value, but groceries, transport and subscriptions still need a card.", icon: "shopping-bag" },
@@ -580,7 +580,7 @@ export const solutions = {
   globalOnlineSpending: {
     slug: "global-online-spending",
     heading: "For Global Online Spending",
-    hero: { h1: "Use your stablecoin balance for global online spending", sub: "Move supported USDT or USDC into Kaloq and use the Kaloq Card for eligible subscriptions, software, shopping, travel bookings, and other international online purchases.", primaryCta: { label: "Get your card", href: "https://card.kaloq.com" }, secondaryCta: { label: "Explore Kaloq Card", href: "/products/card" }, image: "/images/use-cases/global-online-spending.jpg", imageAlt: "A person shopping online with a laptop and phone", objectPosition: "center" },
+    hero: { h1: "Use your stablecoin balance for global online spending", sub: "Move supported USDT or USDC into Kaloq and use the Kaloq Card for eligible subscriptions, software, shopping, travel bookings, and other international online purchases.", primaryCta: { label: "Get your card", href: CARD_SIGNUP_HREF }, secondaryCta: { label: "Explore Kaloq Card", href: "/products/card" }, image: "/images/use-cases/global-online-spending.jpg", imageAlt: "A person shopping online with a laptop and phone", objectPosition: "center" },
     painPoints: [
       { text: "Your stablecoin balance is ready, but many online services still expect a card.", icon: "laptop" },
       { text: "International subscriptions, software and shopping can fail when your local card or payment route is not supported.", icon: "alert" },
@@ -692,11 +692,11 @@ export const legal: Record<"terms" | "privacy", LegalDoc> = {
       },
       {
         heading: "2. Financial Service Providers",
-        body: "The underlying financial services accessible through Kaloq are provided by Interlace and its applicable affiliates, card issuers, banks, custodians, payment processors, digital-asset providers, and other licensed or regulated institutions (collectively, \"Financial Service Providers\"). The provider responsible for a service may depend on your location, account status, currency, asset, card program, or transaction type and will be identified in the applicable application, disclosure, transaction flow, or provider agreement where required. Financial Service Providers, not Kaloq, are responsible for the regulated and operational components of the services they provide, including identity and compliance approval, safeguarding or custody, underlying financial accounts, card issuance, transaction authorization, bank and blockchain transfers, conversion, clearing and settlement, reversals, chargebacks, error resolution, and regulatory reporting. Kaloq may provide technical integration, administrative support, and first-line customer service. Doing so does not make Kaloq the holder, custodian, issuer, or transmitter of your funds.",
+        body: "The underlying financial services accessible through Kaloq are provided by applicable card issuers, banks, custodians, payment processors, digital-asset providers, and other licensed or regulated institutions (collectively, \"Financial Service Providers\"). The provider responsible for a service may depend on your location, account status, currency, asset, card program, or transaction type and will be identified in the applicable application, disclosure, transaction flow, or provider agreement where required. Financial Service Providers, not Kaloq, are responsible for the regulated and operational components of the services they provide, including identity and compliance approval, safeguarding or custody, underlying financial accounts, card issuance, transaction authorization, bank and blockchain transfers, conversion, clearing and settlement, reversals, chargebacks, error resolution, and regulatory reporting. Kaloq may provide technical integration, administrative support, and first-line customer service. Doing so does not make Kaloq the holder, custodian, issuer, or transmitter of your funds.",
       },
       {
         heading: "3. Separate Provider Agreements",
-        body: "Before accessing a financial service, you may be required to enter into a separate agreement directly with the responsible Financial Service Provider, including an Interlace user or account agreement, cardholder agreement, bank-transfer or payment-services agreement, digital-asset wallet or custody agreement, fee schedule, electronic communications consent, privacy notice, or risk disclosure (collectively, \"Provider Terms\"). Your use of an underlying financial service is governed by the applicable Provider Terms. Kaloq is not a party to Provider Terms unless the relevant agreement expressly identifies Kaloq as a party. If these Terms conflict with Provider Terms concerning an underlying financial service, the Provider Terms control for that service. These Terms continue to govern your use of Kaloq's software, interface, content, and technology layer. Nothing in these Terms modifies, expands, or replaces a Financial Service Provider's obligations under its Provider Terms.",
+        body: "Before accessing a financial service, you may be required to enter into a separate agreement directly with the responsible Financial Service Provider, including a user or account agreement, cardholder agreement, bank-transfer or payment-services agreement, digital-asset wallet or custody agreement, fee schedule, electronic communications consent, privacy notice, or risk disclosure (collectively, \"Provider Terms\"). Your use of an underlying financial service is governed by the applicable Provider Terms. Kaloq is not a party to Provider Terms unless the relevant agreement expressly identifies Kaloq as a party. If these Terms conflict with Provider Terms concerning an underlying financial service, the Provider Terms control for that service. These Terms continue to govern your use of Kaloq's software, interface, content, and technology layer. Nothing in these Terms modifies, expands, or replaces a Financial Service Provider's obligations under its Provider Terms.",
       },
       {
         heading: "4. Eligibility",

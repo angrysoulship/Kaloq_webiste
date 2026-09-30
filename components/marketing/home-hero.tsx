@@ -1,5 +1,6 @@
 import { ScrollScrubVideo } from "@/components/marketing/scroll-scrub-video";
 import { home } from "@/lib/content";
+import { CARD_SIGNUP_ENABLED } from "@/lib/features";
 
 const { hero } = home;
 
@@ -36,14 +37,16 @@ export function HomeHero() {
             {hero.sub}
           </p>
 
-          <a
-            href={hero.ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-display-sans inline-flex rounded-full bg-lime px-8 py-[18px] text-[15px] font-semibold leading-none text-[#1B4533] transition-colors duration-150 hover:bg-lime-hover"
-          >
-            {hero.submitLabel}
-          </a>
+          {CARD_SIGNUP_ENABLED && (
+            <a
+              href={hero.ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display-sans inline-flex rounded-full bg-lime px-8 py-[18px] text-[15px] font-semibold leading-none text-[#1B4533] transition-colors duration-150 hover:bg-lime-hover"
+            >
+              {hero.submitLabel}
+            </a>
+          )}
         </div>
       </div>
     </section>

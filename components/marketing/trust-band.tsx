@@ -21,15 +21,6 @@ export function TrustBand() {
             </div>
           ))}
         </div>
-
-        <div className="mt-11 flex flex-wrap items-center gap-7 border-t border-white/16 pt-[22px]">
-          <div className="flex-none text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
-            {trustBand.partnersLabel}
-          </div>
-              <span className="text-sm font-semibold text-white sm:text-base">
-                {trustBand.partnerName}
-              </span>
-        </div>
       </div>
     </section>
   );

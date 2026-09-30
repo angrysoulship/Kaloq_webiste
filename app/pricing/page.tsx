@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
 import { FeeTable } from "@/components/ui/fee-table";
 import { pricing } from "@/lib/content";
+import { CARD_SIGNUP_HREF } from "@/lib/features";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -40,7 +41,7 @@ export default function PricingPage() {
         <FadeIn className="mx-auto flex max-w-[1160px] flex-col items-center rounded-[32px] bg-[#E9E2D1] px-6 py-14 text-center md:py-18">
           <h2 className="font-display text-[clamp(38px,4.4vw,56px)] font-normal leading-[1.06] tracking-[-0.01em] text-[#0E2A1E]">Ready to make your balance spendable?</h2>
           <p className="mt-4 max-w-[480px] text-[15.5px] leading-[1.6] text-[#42544A]">Start with supported stablecoins and review the final cost before you confirm.</p>
-          <Button href="https://card.kaloq.com" size="lg" className="mt-7 bg-[#1B4533] text-white hover:bg-[#0E2A1E]">Get your card</Button>
+          <Button href={CARD_SIGNUP_HREF} size="lg" className="mt-7 bg-[#1B4533] text-white hover:bg-[#0E2A1E]">Get your card</Button>
         </FadeIn>
       </Section>
 

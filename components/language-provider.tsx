@@ -454,7 +454,6 @@ const translations: Record<string, string> = {
   "Qualified, regulated custodians.": "由合格且受监管的托管机构提供服务。",
   Reserves: "储备透明",
   "Attested monthly by independent auditors.": "由独立审计机构按月鉴证。",
-  "Custody & banking partners": "托管与银行合作伙伴",
   "Ready to": "准备好",
   "Open your account in minutes. Free to start.": "几分钟即可开通账户，免费开始使用。",
   "Talk to sales": "联系销售",
