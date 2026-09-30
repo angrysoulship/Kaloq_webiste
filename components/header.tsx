@@ -8,6 +8,7 @@ import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 import { LanguageToggle } from "@/components/language-provider";
 import { nav, type NavDropdownItem } from "@/lib/content";
+import { CARD_SIGNUP_ENABLED } from "@/lib/features";
 
 function NavDropdown({ label, items }: { label: string; items: NavDropdownItem[] }) {
   const [open, setOpen] = useState(false);
@@ -124,9 +125,11 @@ export function Header() {
 
         <div className="hidden items-center justify-end gap-7 md:flex">
           <LanguageToggle />
-          <Button href={nav.demo.href} variant="solid" className="bg-lime px-7 py-3 text-sm font-semibold !text-[#1B4533] transition-colors duration-150 hover:bg-lime-hover">
-            {nav.demo.label}
-          </Button>
+          {CARD_SIGNUP_ENABLED && (
+            <Button href={nav.demo.href} variant="solid" className="bg-lime px-7 py-3 text-sm font-semibold !text-[#1B4533] transition-colors duration-150 hover:bg-lime-hover">
+              {nav.demo.label}
+            </Button>
+          )}
         </div>
 
         <button
@@ -170,11 +173,13 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         </div>
       </div>
 
-      <div className="border-t border-border p-6">
-        <Button href={nav.demo.href} variant="solid" size="lg" className="w-full bg-lime !text-[#1B4533] hover:bg-lime-hover">
-          {nav.demo.label}
-        </Button>
-      </div>
+      {CARD_SIGNUP_ENABLED && (
+        <div className="border-t border-border p-6">
+          <Button href={nav.demo.href} variant="solid" size="lg" className="w-full bg-lime !text-[#1B4533] hover:bg-lime-hover">
+            {nav.demo.label}
+          </Button>
+        </div>
+      )}
     </div>,
     document.body
   );

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { home } from "@/lib/content";
+import { CARD_SIGNUP_ENABLED } from "@/lib/features";
 
 export function HomeCta() {
   const { readyCta } = home;
@@ -30,14 +31,16 @@ export function HomeCta() {
         </h2>
         <p className="mt-4 text-base text-white/78">{readyCta.sub}</p>
         <div className="mt-[34px] flex flex-wrap justify-center gap-3">
-          <a
-            href={readyCta.primaryCta.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-lime px-8 py-[15px] text-base font-semibold text-[#0E2A1E] transition-colors hover:bg-lime-hover"
-          >
-            {readyCta.primaryCta.label}
-          </a>
+          {CARD_SIGNUP_ENABLED ? (
+            <a
+              href={readyCta.primaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-lime px-8 py-[15px] text-base font-semibold text-[#0E2A1E] transition-colors hover:bg-lime-hover"
+            >
+              {readyCta.primaryCta.label}
+            </a>
+          ) : null}
           <Link
             href={readyCta.secondaryCta.href}
             className="rounded-full border border-white/22 bg-white/14 px-8 py-[15px] text-base font-semibold text-white backdrop-blur-[10px] transition-colors hover:bg-white/24"

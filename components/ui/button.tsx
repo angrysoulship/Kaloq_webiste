@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import { CARD_SIGNUP_ENABLED, isCardSignupHref } from "@/lib/features";
 
 type Variant = "solid" | "ghost" | "outline" | "text";
 type Size = "md" | "lg";
@@ -39,6 +40,10 @@ export function Button({
   disabled?: boolean;
 }) {
   const classes = `${base} ${variants[variant]} ${variant === "text" ? "" : sizes[size]} ${className}`;
+
+  if (href && !CARD_SIGNUP_ENABLED && isCardSignupHref(href)) {
+    return null;
+  }
 
   if (href) {
     const isExternal = href.startsWith("http");

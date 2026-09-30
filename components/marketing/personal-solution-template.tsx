@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/section";
 import { FadeIn } from "@/components/ui/fade-in";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
 import { Button } from "@/components/ui/button";
+import { CARD_SIGNUP_HREF } from "@/lib/features";
 import { SolutionHero } from "@/components/marketing/solution-hero";
 import { ScenarioFlow } from "@/components/marketing/scenario-flow";
 import { SolutionIcon } from "@/components/marketing/solution-icons";
@@ -92,7 +93,7 @@ export function PersonalSolutionTemplate({ solution }: { solution: Solution }) {
           <h2 className="font-display text-[clamp(38px,4.4vw,56px)] font-normal leading-[1.06] tracking-[-0.01em] text-[#0E2A1E]">Keep your balance ready to spend</h2>
           <p className="mt-4 max-w-[460px] text-[15.5px] leading-[1.6] text-[#42544A]">Start with your supported wallet balance and make more of everyday life.</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Button href="https://card.kaloq.com" size="lg" className="bg-[#1B4533] text-white hover:bg-[#0E2A1E]">Get your card</Button>
+            <Button href={CARD_SIGNUP_HREF} size="lg" className="bg-[#1B4533] text-white hover:bg-[#0E2A1E]">Get your card</Button>
             <Link href="/products/card" className="inline-flex items-center justify-center rounded-full border border-[#BEB39C] bg-white/45 px-6 py-3.5 text-base font-semibold text-[#1B4533] hover:bg-white">Explore Kaloq Card</Link>
           </div>
         </FadeIn>
