@@ -72,6 +72,23 @@ html[data-language="zh"] .localized-hero-accent {
   font-style: normal;
 }
 
+/* Blog follows the same Chinese typography as the rest of the website.
+   Remove English editorial styling that would otherwise create synthetic
+   italics and over-spaced Chinese labels after the global language switch. */
+html[data-language="zh"] .blog-page,
+html[data-language="zh"] .blog-page * {
+  font-family: var(--font-noto-sans-sc), sans-serif !important;
+}
+
+html[data-language="zh"] .blog-page .blog-editorial-accent {
+  font-style: normal;
+}
+
+html[data-language="zh"] .blog-page .font-display,
+html[data-language="zh"] .blog-page .font-mono {
+  letter-spacing: 0 !important;
+}
+
 .tabular-figures {
   font-variant-numeric: tabular-nums;
 }

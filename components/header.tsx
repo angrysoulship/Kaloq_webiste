@@ -121,6 +121,9 @@ export function Header() {
           <Link href={nav.pricing.href} className="py-2 text-sm font-medium text-current hover:text-brand">
             {nav.pricing.label}
           </Link>
+          <Link href="/blog" className="py-2 text-sm font-medium text-current hover:text-brand">
+            Blog
+          </Link>
         </nav>
 
         <div className="hidden items-center justify-end gap-7 md:flex">
@@ -167,6 +170,9 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <MobileGroup title="Solutions" items={nav.solutions} onNavigate={onClose} />
         <Link href={nav.pricing.href} onClick={onClose} className="block border-b border-border py-4 text-base font-medium text-foreground">
           {nav.pricing.label}
+        </Link>
+        <Link href="/blog" onClick={onClose} className="block border-b border-border py-4 text-base font-medium text-foreground">
+          Blog
         </Link>
         <div className="mt-6 flex items-center">
           <LanguageToggle className="text-foreground" />

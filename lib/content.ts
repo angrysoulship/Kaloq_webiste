@@ -75,6 +75,7 @@ export const footer = {
     {
       heading: "Legal",
       links: [
+        { label: "Blog", href: "/blog" },
         { label: "Terms of Service", href: "/legal/terms" },
         { label: "Privacy Policy", href: "/legal/privacy" },
       ] as NavLink[],
