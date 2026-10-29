@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { blogPosts } from "@/lib/blog-content";
 
 export type Language = "en" | "zh";
 
@@ -497,6 +496,7 @@ const translations: Record<string, string> = {
   "A calmer way to follow the future of money.": "用更清晰的方式，了解资金的未来。",
   "Stay in touch": "保持联系",
   "Back to journal": "返回文章列表",
+  "Back to Kaloq": "返回 Kaloq 首页",
   "In this guide": "本文目录",
   "Sources and further reading": "参考资料与延伸阅读",
   "Frequently asked questions": "常见问题",
@@ -508,38 +508,6 @@ const translations: Record<string, string> = {
   "Make it spendable.": "让资产真正可用。",
   "Product availability, supported assets, networks, countries, currencies, and merchant categories vary by eligibility and jurisdiction. This article is for general information only and is not financial, legal, or investment advice.": "产品可用性、支持的资产、网络、国家、币种及商户类别会因资格条件和司法管辖区而异。本文仅供一般信息参考，不构成金融、法律或投资建议。",
 };
-
-// Article translations belong to the website language layer, not to Sanity's
-// editing model. Pair the existing approved English and Chinese copy here so
-// the global language toggle also covers Blog cards and article bodies.
-function addPairedStrings(english: unknown, chinese: unknown, key = "") {
-  const ignoredKeys = new Set(["slug", "translationSlug", "locale", "id", "href", "url", "art", "publishedTime", "modifiedTime", "coverImageUrl"]);
-  if (ignoredKeys.has(key)) return;
-  if (typeof english === "string" && typeof chinese === "string") {
-    const source = english.replace(/\s+/g, " ").trim();
-    const target = chinese.replace(/\s+/g, " ").trim();
-    if (source && target && source !== target) translations[source] = target;
-    return;
-  }
-  if (Array.isArray(english) && Array.isArray(chinese)) {
-    english.forEach((value, index) => addPairedStrings(value, chinese[index], key));
-    return;
-  }
-  if (english && chinese && typeof english === "object" && typeof chinese === "object") {
-    Object.keys(english).forEach((childKey) => {
-      addPairedStrings(
-        (english as Record<string, unknown>)[childKey],
-        (chinese as Record<string, unknown>)[childKey],
-        childKey,
-      );
-    });
-  }
-}
-
-blogPosts.filter((post) => post.locale === "en").forEach((englishPost) => {
-  const chinesePost = blogPosts.find((post) => post.slug === englishPost.translationSlug);
-  if (chinesePost) addPairedStrings(englishPost, chinesePost);
-});
 
 const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([en, zh]) => [zh, en]));
 

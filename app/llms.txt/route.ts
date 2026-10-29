@@ -1,7 +1,8 @@
-import { blogPosts } from "@/lib/blog-content";
+import { getBlogPosts } from "@/sanity/lib/blog";
 import { SITE_URL } from "@/lib/seo";
 
-export function GET() {
+export async function GET() {
+  const blogPosts = await getBlogPosts();
   const articles = blogPosts
     .map((post) => `- [${post.title}](${SITE_URL}/blog/${post.slug}): ${post.excerpt}`)
     .join("\n");

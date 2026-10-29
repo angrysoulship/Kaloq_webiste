@@ -32,8 +32,6 @@ function normalizePost(post: SanityPost): BlogPost {
     art: post.art || "portal",
     coverImageUrl: post.coverImageUrl,
     coverImageAlt: post.coverImageAlt || post.title || "Kaloq article cover",
-    locale: "en",
-    translationSlug: post.slug,
     keywords: post.keywords || [],
     featured: post.featured || false,
     intro: post.intro || post.excerpt || "",

@@ -50,15 +50,6 @@ export default async function BlogPage() {
         })),
       },
     }) }} />
-    <section className="relative border-b border-[#DCD7CA] px-6 pb-16 pt-20 md:px-10 md:pb-24 md:pt-28">
-      <div aria-hidden="true" className="absolute -right-28 -top-40 h-[440px] w-[440px] rounded-full border-[70px] border-lime/40" />
-      <div className="relative mx-auto max-w-[1240px]">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#7E6F4F]">Kaloq journal · Ideas in motion</p>
-        <h1 className="mt-6 max-w-[870px] font-display text-[clamp(62px,8.5vw,122px)] font-normal leading-[0.89] tracking-[-0.035em] text-[#0E2A1E]">Money should move<br/><em className="blog-editorial-accent text-[#568069]">like the internet.</em></h1>
-        <p className="mt-8 max-w-xl text-[18px] leading-[1.65] text-[#42544A]">Perspectives, practical guides, and product stories about making stablecoins useful in everyday life.</p>
-      </div>
-    </section>
-
     <section className="px-6 py-14 md:px-10 md:py-20">
       <div className="mx-auto max-w-[1240px]">
         <Link href={`/blog/${featuredPost.slug}`} className="group grid overflow-hidden rounded-[30px] bg-[#EEE9DC] lg:grid-cols-[0.9fr_1.1fr]">
