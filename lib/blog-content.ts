@@ -12,6 +12,8 @@ export type BlogPost = {
   slug: string;
   category: BlogCategory;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   date: string;
   publishedTime: string;
@@ -22,6 +24,7 @@ export type BlogPost = {
   art: "portal" | "ledger" | "orbit" | "bridge" | "signal";
   coverImageUrl?: string;
   coverImageAlt?: string;
+  coverImageFit?: "cover" | "contain";
   keywords: string[];
   featured?: boolean;
   intro: string;

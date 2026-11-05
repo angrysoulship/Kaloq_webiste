@@ -9,7 +9,7 @@ const categories: Array<"All" | BlogCategory> = ["All", "Perspectives", "Guides"
 
 export function BlogIndex({ allPosts }: { allPosts: BlogPost[] }) {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
-  const posts = allPosts.filter((post) => !post.featured && (category === "All" || post.category === category));
+  const posts = allPosts.filter((post) => category === "All" || post.category === category);
 
   return <>
     <div className="flex flex-wrap gap-2" aria-label="Filter articles by category">

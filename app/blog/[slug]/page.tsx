@@ -21,8 +21,8 @@ function getBodyHeadings(body: Array<Record<string, unknown>> | undefined) {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const post = await getBlogPost((await params).slug);
   return post ? {
-    title: post.title,
-    description: post.excerpt,
+    title: post.metaTitle ? { absolute: post.metaTitle } : post.title,
+    description: post.metaDescription || post.excerpt,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return <article lang="en" className="blog-page bg-[#FAF8F1]">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }} />
+    {post.faq.length > 0 && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }} />}
     <header className="px-6 pb-12 pt-16 md:px-10 md:pb-20 md:pt-24">
       <div className="mx-auto max-w-[1100px] text-center">
         <Link href="/blog" className="font-mono text-xs uppercase tracking-[0.16em] text-[#617067] hover:text-[#1B4533]">← Back to journal</Link>
@@ -115,12 +115,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>)}
         <blockquote className="my-12 border-l-4 border-lime bg-[#F0EBDD] px-7 py-7 font-display text-[30px] leading-[1.25] text-[#1B4533]">{post.takeaway}</blockquote>
         {post.sources && <section aria-labelledby="sources-heading"><h2 id="sources-heading" className="pt-4 font-display text-[34px] text-[#0E2A1E]">Sources and further reading</h2><ul className="mt-4 space-y-2 text-base">{post.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer" className="font-semibold text-[#1B4533] underline decoration-[#9DB68A] underline-offset-4">{source.label} ↗</a></li>)}</ul></section>}
-        <section aria-labelledby="faq-heading"><h2 id="faq-heading" className="pt-14 font-display text-[42px] leading-[1.08] text-[#0E2A1E]">Frequently asked questions</h2><div className="mt-6 divide-y divide-[#DCD7CA] border-y border-[#DCD7CA]">{post.faq.map((item) => <div key={item.question} className="py-6"><h3 className="font-display text-[26px] leading-tight text-[#1B4533]">{item.question}</h3><p className="mt-3 text-[16px] leading-relaxed text-[#536057]">{item.answer}</p></div>)}</div></section>
+        {post.faq.length > 0 && <section aria-labelledby="faq-heading"><h2 id="faq-heading" className="pt-14 font-display text-[42px] leading-[1.08] text-[#0E2A1E]">Frequently asked questions</h2><div className="mt-6 divide-y divide-[#DCD7CA] border-y border-[#DCD7CA]">{post.faq.map((item) => <div key={item.question} className="py-6"><h3 className="font-display text-[26px] leading-tight text-[#1B4533]">{item.question}</h3><p className="mt-3 text-[16px] leading-relaxed text-[#536057]">{item.answer}</p></div>)}</div></section>}
         <div className="mt-12 rounded-[24px] bg-lime p-8 text-[#0E2A1E]"><p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#1B4533]/70">Kaloq</p><h2 className="mt-3 font-display text-[32px] leading-tight">{post.cta.title}</h2><p className="mt-3 text-[16px] leading-relaxed text-[#1B4533]/80">{post.cta.description}</p><Link href={post.cta.href} className="mt-6 inline-flex rounded-full bg-[#1B4533] px-5 py-3 text-sm font-semibold text-white">{post.cta.label} →</Link></div>
         <div className="mt-8 rounded-[24px] bg-[#1B4533] p-7 text-white"><p className="font-mono text-[11px] uppercase tracking-[0.16em] text-lime">A note from Kaloq</p><p className="mt-3 text-[16px] leading-relaxed text-white/75">{getProductNote()}</p></div>
       </div>
     </div>
 
-    <section className="border-t border-[#DCD7CA] px-6 py-16 md:px-10 md:py-24"><div className="mx-auto max-w-[1240px]"><div className="flex items-end justify-between"><div><p className="font-mono text-xs uppercase tracking-[0.16em] text-[#7E6F4F]">Keep reading</p><h2 className="mt-3 font-display text-[44px] text-[#0E2A1E]">Related stories</h2></div><Link href="/blog" className="hidden text-sm font-semibold text-[#1B4533] md:block">View all stories →</Link></div><div className="mt-8 grid gap-7 md:grid-cols-2">{related.map((item) => <Link key={item.slug} href={`/blog/${item.slug}`} className="group grid overflow-hidden rounded-[24px] bg-[#EEE9DC] sm:grid-cols-2"><BlogVisual post={item} className="aspect-[4/3] sm:aspect-auto"/><div className="p-7"><p className="font-mono text-[11px] uppercase tracking-[.12em] text-[#7E6F4F]">{item.category}</p><h3 className="mt-3 font-display text-[29px] leading-[1.08] text-[#0E2A1E] group-hover:text-[#2D6549]">{item.title}</h3><p className="mt-5 text-sm font-medium text-[#1B4533]">Read article ↗</p></div></Link>)}</div></div></section>
+    {related.length > 0 && <section className="border-t border-[#DCD7CA] px-6 py-16 md:px-10 md:py-24"><div className="mx-auto max-w-[1240px]"><div className="flex items-end justify-between"><div><p className="font-mono text-xs uppercase tracking-[0.16em] text-[#7E6F4F]">Keep reading</p><h2 className="mt-3 font-display text-[44px] text-[#0E2A1E]">Related stories</h2></div><Link href="/blog" className="hidden text-sm font-semibold text-[#1B4533] md:block">View all stories →</Link></div><div className="mt-8 grid gap-7 md:grid-cols-2">{related.map((item) => <Link key={item.slug} href={`/blog/${item.slug}`} className="group grid overflow-hidden rounded-[24px] bg-[#EEE9DC] sm:grid-cols-2"><BlogVisual post={item} className="aspect-[4/3] sm:aspect-auto"/><div className="p-7"><p className="font-mono text-[11px] uppercase tracking-[.12em] text-[#7E6F4F]">{item.category}</p><h3 className="mt-3 font-display text-[29px] leading-[1.08] text-[#0E2A1E] group-hover:text-[#2D6549]">{item.title}</h3><p className="mt-5 text-sm font-medium text-[#1B4533]">Read article ↗</p></div></Link>)}</div></div></section>}
   </article>;
 }

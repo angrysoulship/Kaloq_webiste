@@ -2,7 +2,7 @@ import { defineQuery } from "next-sanity";
 
 export const postsQuery = defineQuery(`
   *[_type == "post" && defined(slug.current) && coalesce(locale, "en") != "zh"] | order(featured desc, publishedAt desc) {
-    _id, _updatedAt, title, "slug": slug.current, category, excerpt,
+    _id, _updatedAt, title, metaTitle, metaDescription, "slug": slug.current, category, excerpt, coverImageFit,
     publishedAt, readTime, author, role, art, featured, keywords, intro, body,
     "coverImageUrl": coverImage.asset->url, "coverImageAlt": coverImage.alt,
     sections[]{id, title, paragraphs, bullets, steps[]{title, description}},
@@ -12,7 +12,7 @@ export const postsQuery = defineQuery(`
 
 export const postBySlugQuery = defineQuery(`
   *[_type == "post" && slug.current == $slug && coalesce(locale, "en") != "zh"][0] {
-    _id, _updatedAt, title, "slug": slug.current, category, excerpt,
+    _id, _updatedAt, title, metaTitle, metaDescription, "slug": slug.current, category, excerpt, coverImageFit,
     publishedAt, readTime, author, role, art, featured, keywords, intro, body,
     "coverImageUrl": coverImage.asset->url, "coverImageAlt": coverImage.alt,
     sections[]{id, title, paragraphs, bullets, steps[]{title, description}},

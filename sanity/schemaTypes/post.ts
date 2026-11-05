@@ -26,6 +26,9 @@ export const postType = defineType({
     defineField({ name: "coverImage", title: "Cover image", type: "image", group: "content", options: { hotspot: true }, fields: [{ name: "alt", title: "Alt text", type: "string" }] }),
     defineField({ name: "excerpt", title: "Summary", description: "Used on article cards and as the meta description.", type: "text", rows: 3, group: "seo", validation: (rule) => rule.required().max(180) }),
     defineField({ name: "keywords", title: "SEO keywords", type: "array", group: "seo", of: [{ type: "string" }], options: { layout: "tags" } }),
+    defineField({ name: "metaTitle", title: "SEO title", description: "Optional. Falls back to the article title.", type: "string", group: "seo" }),
+    defineField({ name: "metaDescription", title: "SEO description", description: "Optional. Falls back to the summary.", type: "text", rows: 3, group: "seo", validation: (rule) => rule.max(180) }),
+    defineField({ name: "coverImageFit", title: "Cover image display", type: "string", group: "content", initialValue: "cover", options: { list: [{ title: "Fill and crop (photos)", value: "cover" }, { title: "Show complete image (diagrams)", value: "contain" }] } }),
     defineField({ name: "intro", title: "Opening paragraph", type: "text", rows: 5, group: "content", validation: required }),
     defineField({
       name: "body", title: "Article body", type: "array", group: "content", validation: required,
