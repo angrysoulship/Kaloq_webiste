@@ -32,6 +32,8 @@ function normalizePost(post: SanityPost): BlogPost {
     author: post.author || "Kaloq Editorial",
     role: post.role || "Product Education",
     art: post.art || "portal",
+    featuredImageUrl: post.featuredImageUrl,
+    featuredImageAlt: post.featuredImageAlt,
     coverImageUrl: post.coverImageUrl,
     coverImageAlt: post.coverImageAlt || post.title || "Kaloq article cover",
     coverImageFit: post.coverImageFit || "cover",

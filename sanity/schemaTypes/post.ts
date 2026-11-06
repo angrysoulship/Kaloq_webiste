@@ -23,6 +23,7 @@ export const postType = defineType({
     defineField({ name: "role", title: "Author role", type: "string", group: "publishing", initialValue: "Product Education" }),
     defineField({ name: "readTime", title: "Read time", type: "string", group: "publishing", initialValue: "6 min read" }),
     defineField({ name: "art", title: "Fallback artwork", type: "string", group: "publishing", initialValue: "portal", options: { list: ["portal", "ledger", "orbit", "bridge", "signal"] } }),
+    defineField({ name: "featuredImage", title: "Featured card illustration", description: "Optional portrait artwork for the Blog featured card. Keep important elements inside the central area for responsive cropping.", type: "image", group: "content", options: { hotspot: true }, fields: [{ name: "alt", title: "Alt text", type: "string" }] }),
     defineField({ name: "coverImage", title: "Cover image", type: "image", group: "content", options: { hotspot: true }, fields: [{ name: "alt", title: "Alt text", type: "string" }] }),
     defineField({ name: "excerpt", title: "Summary", description: "Used on article cards and as the meta description.", type: "text", rows: 3, group: "seo", validation: (rule) => rule.required().max(180) }),
     defineField({ name: "keywords", title: "SEO keywords", type: "array", group: "seo", of: [{ type: "string" }], options: { layout: "tags" } }),

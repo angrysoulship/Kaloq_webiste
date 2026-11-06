@@ -22,6 +22,8 @@ export type BlogPost = {
   author: string;
   role: string;
   art: "portal" | "ledger" | "orbit" | "bridge" | "signal";
+  featuredImageUrl?: string;
+  featuredImageAlt?: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
   coverImageFit?: "cover" | "contain";
