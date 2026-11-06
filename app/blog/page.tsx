@@ -52,15 +52,15 @@ export default async function BlogPage() {
     }) }} />
     <section className="px-6 py-14 md:px-10 md:py-20">
       <div className="mx-auto max-w-[1240px]">
-        <Link href={`/blog/${featuredPost.slug}`} className="group grid overflow-hidden rounded-[30px] bg-[#EEE9DC] lg:grid-cols-2">
-          <div className="flex flex-col justify-center p-8 md:p-12">
+        <Link href={`/blog/${featuredPost.slug}`} className="group grid overflow-hidden rounded-[30px] bg-[#EEE9DC] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
             <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#7E6F4F]">Featured · {featuredPost.category}</p>
-            <h2 className="mt-5 font-display text-[clamp(36px,3.7vw,48px)] leading-[1.02] tracking-[-0.02em] text-[#0E2A1E]">{featuredPost.title}</h2>
+            <h2 className="mt-5 font-display text-[clamp(40px,4.5vw,64px)] leading-[1.02] tracking-[-0.02em] text-[#0E2A1E]">{featuredPost.title}</h2>
             <p className="mt-6 max-w-xl text-[17px] leading-[1.65] text-[#536057]">{featuredPost.excerpt}</p>
             <div className="mt-8 flex items-center gap-5 text-sm text-[#42544A]"><span>{featuredPost.date}</span><span className="h-px w-8 bg-[#8E998F]"/><span>{featuredPost.readTime}</span></div>
             <span className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[#1B4533] px-5 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-[#2D6549]">Read the story <span aria-hidden="true">↗</span></span>
           </div>
-          <BlogVisual post={featuredPost} variant="featured" className="aspect-[4/5] lg:aspect-auto lg:min-h-[680px]" />
+          <BlogVisual post={featuredPost} className="min-h-[420px] lg:min-h-[630px]" />
         </Link>
       </div>
     </section>
