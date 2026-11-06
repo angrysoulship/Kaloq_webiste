@@ -1,5 +1,10 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import Image from "next/image";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import type { PortableTextValue } from "@/lib/blog-content";
+import { dataset, projectId } from "@/sanity/env";
+
+const imageBuilder = createImageUrlBuilder({ projectId, dataset });
 
 const components: PortableTextComponents = {
   block: {
@@ -16,6 +21,15 @@ const components: PortableTextComponents = {
     link: ({ children, value }) => <a href={value?.href} target={value?.href?.startsWith("http") ? "_blank" : undefined} rel={value?.href?.startsWith("http") ? "noreferrer" : undefined} className="font-semibold text-[#1B4533] underline decoration-[#9DB68A] underline-offset-4">{children}</a>,
   },
   types: {
+    image: ({ value }) => {
+      if (!value.asset?._ref) return null;
+      const dimensions = /-(\d+)x(\d+)-[^-]+$/.exec(value.asset._ref);
+      if (!dimensions) return null;
+      return <figure className="my-10">
+        <Image src={imageBuilder.image(value).width(1600).fit("max").auto("format").url()} alt={value.alt || ""} width={Number(dimensions[1])} height={Number(dimensions[2])} unoptimized sizes="(min-width: 768px) 680px, 100vw" className="h-auto w-full rounded-[18px]" />
+        {value.caption && <figcaption className="mt-3 text-sm leading-relaxed text-[#657068]">{value.caption}</figcaption>}
+      </figure>;
+    },
     callout: ({ value }) => <div className="my-9 rounded-[20px] bg-[#F0EBDD] p-6"><p className="font-display text-[25px] text-[#1B4533]">{value.heading}</p><p className="mt-2 text-[16px] leading-relaxed">{value.text}</p></div>,
     steps: ({ value }) => <ol className="mt-7 space-y-4">{value.items?.map((step: { _key?: string; title: string; description: string }, index: number) => <li key={step._key || step.title} className="rounded-[18px] border border-[#DCD7CA] bg-white/50 p-5"><p className="font-mono text-xs text-[#7E6F4F]">{String(index + 1).padStart(2, "0")}</p><h3 className="mt-1 font-display text-[27px] leading-tight text-[#1B4533]">{step.title}</h3><p className="mt-2 text-[16px] leading-relaxed text-[#536057]">{step.description}</p></li>)}</ol>,
   },
