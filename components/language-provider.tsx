@@ -477,6 +477,36 @@ const translations: Record<string, string> = {
   "USD Available": "USD 可用",
   "USD balance": "USD 余额",
   "Connected to Kaloq Card": "已连接 Kaloq 卡",
+  "Kaloq journal · Ideas in motion": "Kaloq 专栏 · 让想法流动",
+  "Money should move": "资金应该像",
+  "like the internet.": "互联网一样流动。",
+  "Perspectives, practical guides, and product stories about making stablecoins useful in everyday life.": "关于如何让稳定币真正服务日常生活的行业观点、实用指南与产品故事。",
+  Featured: "精选",
+  "Read the story": "阅读文章",
+  "Explore the journal": "浏览专栏",
+  "Latest stories": "最新文章",
+  "Clear thinking on the infrastructure, products, and habits shaping global money.": "深入解读正在重塑全球资金流动的基础设施、产品与使用方式。",
+  All: "全部",
+  Perspectives: "行业观点",
+  Guides: "实用指南",
+  Product: "产品",
+  "Read article": "阅读文章",
+  "More stories in this category are coming soon.": "该分类的更多文章即将上线。",
+  "Kaloq notes": "Kaloq 速记",
+  "A calmer way to follow the future of money.": "用更清晰的方式，了解资金的未来。",
+  "Stay in touch": "保持联系",
+  "Back to journal": "返回文章列表",
+  "Back to Kaloq": "返回 Kaloq 首页",
+  "In this guide": "本文目录",
+  "Sources and further reading": "参考资料与延伸阅读",
+  "Frequently asked questions": "常见问题",
+  "A note from Kaloq": "Kaloq 重要说明",
+  "Keep reading": "继续阅读",
+  "Related stories": "相关文章",
+  "View all stories": "查看全部文章",
+  "Kaloq journal": "Kaloq 专栏",
+  "Make it spendable.": "让资产真正可用。",
+  "Product availability, supported assets, networks, countries, currencies, and merchant categories vary by eligibility and jurisdiction. This article is for general information only and is not financial, legal, or investment advice.": "产品可用性、支持的资产、网络、国家、币种及商户类别会因资格条件和司法管辖区而异。本文仅供一般信息参考，不构成金融、法律或投资建议。",
 };
 
 const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([en, zh]) => [zh, en]));
@@ -487,12 +517,17 @@ function normalize(value: string) {
 
 function translateValue(value: string, language: Language) {
   const normalized = normalize(value);
-  const english = reverseTranslations[normalized] ?? normalized;
+  const decorated = normalized.match(/^([←↗→]\s*)?(.*?)(\s*[←↗→])?$/);
+  const prefix = decorated?.[1] ?? "";
+  const content = decorated?.[2] ?? normalized;
+  const suffix = decorated?.[3] ?? "";
+  const english = reverseTranslations[content] ?? content;
   const translated = language === "zh" ? translations[english] ?? english : english;
-  if (!translated || translated === normalized) return value;
+  const decoratedTranslation = `${prefix}${translated}${suffix}`;
+  if (!translated || decoratedTranslation === normalized) return value;
   const leading = value.match(/^\s*/)?.[0] ?? "";
   const trailing = value.match(/\s*$/)?.[0] ?? "";
-  return `${leading}${translated}${trailing}`;
+  return `${leading}${decoratedTranslation}${trailing}`;
 }
 
 function translateDocument(language: Language) {

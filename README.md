@@ -14,7 +14,9 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The local address is fixed to [http://127.0.0.1:3000](http://127.0.0.1:3000). The embedded Sanity Studio is available at [http://127.0.0.1:3000/studio](http://127.0.0.1:3000/studio).
+
+The development command will fail instead of silently choosing another port if port `3000` is already occupied. Stop the existing process and run `npm run dev` again so the website and Sanity Studio keep the same local origin.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
