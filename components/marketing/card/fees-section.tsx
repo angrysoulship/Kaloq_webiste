@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { productCard } from "@/lib/content";
+import { pricing, productCard } from "@/lib/content";
 
 export function FeesSection() {
   const { fees } = productCard;
+  const rows = pricing.cardFees.filter((row) => fees.labels.includes(row.label));
   return (
     <section className="px-8 pb-20 pt-[100px]">
       <div className="mx-auto max-w-[1160px] text-center">
@@ -13,9 +14,9 @@ export function FeesSection() {
         <p className="mx-auto mt-[18px] max-w-[460px] text-[15.5px] leading-[1.6] text-[#42544A]">{fees.copy}</p>
 
         <div className="mx-auto mt-[42px] max-w-[760px] text-left">
-          {fees.rows.map((row) => (
+          {rows.map((row) => (
             <div key={row.label} className="flex items-baseline justify-between gap-4 border-t border-[#E6DFCC] py-3.5">
-              <span className="text-[14.5px] text-foreground">{row.label}</span>
+              <div><span className="text-[14.5px] text-foreground">{row.label}</span><p className="mt-1 text-xs leading-relaxed text-[#536057]">{row.note}</p></div>
               <span className={`font-mono text-[13.5px] ${row.value === "Free" ? "text-[#2F6B4E]" : "text-foreground"}`}>{row.value}</span>
             </div>
           ))}
