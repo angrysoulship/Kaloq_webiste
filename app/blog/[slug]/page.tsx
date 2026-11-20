@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BlogVisual } from "@/components/blog/blog-visual";
+import { ArticleTableOfContents } from "@/components/blog/article-table-of-contents";
 import { PortableArticle } from "@/components/blog/portable-article";
 import { getProductNote } from "@/lib/blog-content";
 import { getBlogPost, getBlogPosts, getBlogSlugs } from "@/sanity/lib/blog";
@@ -104,7 +105,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <div className="px-6 md:px-10"><BlogVisual post={post} className="mx-auto aspect-[16/8] max-w-[1240px] rounded-[28px] md:rounded-[38px]" /></div>
 
     <div className="mx-auto grid max-w-[1040px] gap-12 px-6 py-16 md:grid-cols-[180px_minmax(0,680px)] md:px-10 md:py-24">
-      <aside className="md:sticky md:top-28 md:self-start"><p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#7E6F4F]">In this guide</p><nav className="mt-4 flex flex-col gap-3 text-sm leading-snug text-[#657068]">{articleHeadings.map((section) => <a key={section.id} href={`#${section.id}`} className="hover:text-[#1B4533]">{section.title}</a>)}</nav></aside>
+      <ArticleTableOfContents headings={articleHeadings} />
       <div className="article-body text-[18px] leading-[1.8] text-[#39483F]">
         <p className="font-display text-[31px] leading-[1.35] text-[#1B4533]">{post.intro}</p>
         {post.body?.length ? <PortableArticle value={post.body} /> : post.sections.map((section) => <section key={section.id} aria-labelledby={`${section.id}-heading`}>
